@@ -1,37 +1,52 @@
-# Sim6502
+# MOS 6502 模拟器
 
-#### 介绍
-Sim6502，基于C语言写的6502处理器模拟器，模拟Apple I兼容机，可以运行Wozmon和BASIC等。
+这是一个模拟 MOS Technology 6502 微处理器及其配套的 6850 UART 控制器的开源项目。该项目基于 MIT 开源协议发布，由 MicroFish 在 2024 年 12 月 13 日编写。
 
-#### 软件架构
-软件架构说明
+## 特点
 
+- 模拟 6502 处理器的完整指令集。
+- 支持通过 6850 UART 控制器进行模拟的串行通信。
+- 能够加载 ROM 文件到模拟器的内存中。
+- 提供内存转储功能。
+- 支持交互式模式，允许用户在运行时输入数据。
 
-#### 安装教程
+## 构建与运行
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+要构建和运行模拟器，您需要一个支持 C 语言的编译器，和make构建器。以下是构建过程的简要说明：
 
-#### 使用说明
+1. 将项目clone到本地：
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+   ```sh
+   git clone https://gitee.com/viudiratech/sim6502.git
+   ```
 
-#### 参与贡献
+2. 使用make来编译整个项目：
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+   ```sh
+   make
+   ```
 
+3. 运行编译出的可执行文件，并根据需要加载 ROM 文件和设置参数。或者执行”make test“来测试现成的Wozmon.bin
 
-#### 特技
+## 使用说明
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+模拟器接受多个命令行参数来控制其行为。以下是一些可用的参数：
+
+- `-a`, `-x`, `-y`, `-s`, `-p`：分别设置 A 寄存器、X 寄存器、Y 寄存器、栈指针和处理器状态寄存器的初始值。
+- `-r`, `-g`：设置默认运行地址。
+- `-v`：在每个操作时打印 CPU 信息。
+- `-i`：向模拟器连接 stdin/stdout。
+- `-b`：在 PC 到达指定地址时停止，转储内存，随后退出。
+- `-c`：在指定的周期后停止。
+- `-f`：尽可能以最大速度运行，没有延迟循环。
+- `-l`：为 ROM 文件设置加载地址。
+
+## 文件结构
+
+- `Sim6502.c`：模拟器的主程序。
+- `6850.c` 和 `6850.h`：6850 UART 控制器的模拟。
+- `6502.c` 和 `6502.h`：6502 处理器的模拟。
+
+## 版权声明
+
+Copyright © 2020 ViudiraTech，保留最终解释权。
