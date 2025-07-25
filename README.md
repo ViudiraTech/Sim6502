@@ -1,52 +1,52 @@
-# MOS 6502 模拟器
+# MOS 6502 Simulator
 
-这是一个模拟 MOS Technology 6502 微处理器及其配套的 6850 UART 控制器的开源项目。该项目基于 MIT 开源协议发布，由 MicroFish 在 2024 年 12 月 13 日编写。
+This is an open-source project that emulates the MOS Technology 6502 microprocessor and its companion 6850 UART controller. The project was released under the MIT open source license and was written by MicroFish on December 13, 2024.
 
-## 特点
+## Features
 
-- 模拟 6502 处理器的完整指令集。
-- 支持通过 6850 UART 控制器进行模拟的串行通信。
-- 能够加载 ROM 文件到模拟器的内存中。
-- 提供内存转储功能。
-- 支持交互式模式，允许用户在运行时输入数据。
+- Emulates the full instruction set of the 6502 processor.
+- Supports analog serial communication via the 6850 UART controller.
+- Ability to load ROM files into the emulator's memory.
+- Provides a memory dump function.
+- Interactive mode is supported, allowing users to enter data at runtime.
 
-## 构建与运行
+## Build & Run
 
-要构建和运行模拟器，您需要一个支持 C 语言的编译器，和make构建器。以下是构建过程的简要说明：
+To build and run the emulator, you'll need a compiler that supports C, and a make builder. Here's a brief description of the build process:
 
-1. 将项目clone到本地：
+1. Clone the project to the local computer:
 
    ```sh
-   git clone https://gitee.com/viudiratech/sim6502.git
+   git clone https://github.com/ViudiraTech/Sim6502.git
    ```
 
-2. 使用make来编译整个项目：
+2. Use make to compile the entire project:
 
    ```sh
    make
    ```
 
-3. 运行编译出的可执行文件，并根据需要加载 ROM 文件和设置参数。或者执行”make test“来测试现成的Wozmon.bin
+3. Run the compiled executable file and load the ROM file and set parameters as needed. Or do "make test" to test the ready-made Wozmon.bin
 
-## 使用说明
+## Directions for use
 
-模拟器接受多个命令行参数来控制其行为。以下是一些可用的参数：
+The emulator accepts several command-line arguments to control its behavior. Here are some of the available parameters:
 
-- `-a`, `-x`, `-y`, `-s`, `-p`：分别设置 A 寄存器、X 寄存器、Y 寄存器、栈指针和处理器状态寄存器的初始值。
-- `-r`, `-g`：设置默认运行地址。
-- `-v`：在每个操作时打印 CPU 信息。
-- `-i`：向模拟器连接 stdin/stdout。
-- `-b`：在 PC 到达指定地址时停止，转储内存，随后退出。
-- `-c`：在指定的周期后停止。
-- `-f`：尽可能以最大速度运行，没有延迟循环。
-- `-l`：为 ROM 文件设置加载地址。
+- `-a`, `-x`, `-y`, `-s`, `-p`:Set the initial values for the A register, the X register, the Y register, the stack pointer, and the processor status register, respectively.
+- `-r`, `-g`：Set the default running address.
+- `-v`:CPU information is printed at each operation.
+- `-i`:Connect stdin/stdout to the emulator.
+- `-b`:Stops when the PC reaches the specified address, dumps memory, and then exits.
+- `-c`:Stops after the specified period.
+- `-f`:Run at maximum speed as much as possible with no delayed loops.
+- `-l`:Set the loading address for the ROM file.
 
-## 文件结构
+## File structure
 
-- `Sim6502.c`：模拟器的主程序。
-- `6850.c` 和 `6850.h`：6850 UART 控制器的模拟。
-- `6502.c` 和 `6502.h`：6502 处理器的模拟。
+- `Sim6502.c`:The main program of the emulator.
+- `6850.c` & `6850.h`:Simulation of the 6850 UART controller.
+- `6502.c` & `6502.h`:Simulation of the 6502 processor.
 
-## 版权声明
+## Copyright Notice
 
-Copyright © 2020 ViudiraTech，保留最终解释权。
+Copyright © 2020 ViudiraTech, based on the MIT agreement.
